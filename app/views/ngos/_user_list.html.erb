@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="top-at col-md-3">
+    <img class="img-responsive" src="<%= user.image.url %>" alt="">
+  </div>
+  <div class="top-at col-md-3">
+    <%= user.name %>
+  </div>
+  <div class="top-at col-md-3">
+    <span><%= user.email %></span>
+  </div>
+  <div class="top-at col-md-3">
+    <%= link_to 'Destroy', ngo_user_path(ngo,user), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'remove_row', :remote => true %>
+  </div>
+</div>
