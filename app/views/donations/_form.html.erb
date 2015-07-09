@@ -11,29 +11,57 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="row field">
+    <div class="col-sm-2">
+      <%= f.label :name %>
+    </div>
+    <div class="col-sm-6">
+      <%= f.text_field :name, {class: "form-control"} %>
+    </div>
   </div>
-  <div class="field">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+  </div>
+  <div class="row field">
+    <div class="col-sm-2">
     <%= f.label :description %><br>
+    </div>
+    <div class="col-sm-6">
     <%= f.text_area :description %>
+    </div>
   </div>
-  <div class="field">
+  <div class="row field">
+    <div class="col-sm-2">
     <%= f.label :category %><br>
+    </div>
+    <div class="col-sm-6">
     <%= f.text_field :category %>
+    </div>
   </div>
-  <div class="field">
+  <div class="row field">
+    <div class="col-sm-2">
     <%= f.label :expiry %><br>
+    </div>
+    <div class="col-sm-6">
     <%= f.datetime_select :expiry %>
+    </div>
   </div>
-  <div class="field">
+  <div class="row field">
+    <div class="col-sm-2">
     <%= f.label :city %><br>
+    </div>
+    <div class="col-sm-6">
     <%= f.text_field :city %>
+    </div>
   </div>
-  <div class="field">
+  <div class="row field">
+    <div class="col-sm-2">
     <%= f.label :user_id %><br>
+    </div>
+    <div class="col-sm-6">
     <%= f.number_field :user_id %>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit %>
