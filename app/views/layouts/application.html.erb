@@ -4,7 +4,7 @@
 <title>Let's Donate | India's First Donation-Based Crowdfunding Platform</title>
 
 <%= stylesheet_link_tag    'application', media: 'all' %>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -27,20 +27,22 @@
 						<li class="active"><a href="portfolio.html" >Portfolio</a></li>
 						<li><a href="blog.html" >Blog</a></li>
 						<li><a href="#contact"  >Contact</a></li>
+						<li><a href=<%= new_user_registration_path %>>Signup</a></li>
+						<li><a href="#contact"  >Login</a></li>
 						<div class="clearfix"> </div>
 					</ul>
 
 
 				</div>
-<%= yield %>
 
 	<div class="clearfix">
-
+<%= yield %>
 	 </div>
 	</div>
 	<div class="footer">
 	<p >© 2015 Ecom All Rights Reserved | Designed by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 	</div>
 	<%= javascript_include_tag 'application' %>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :ngos do
     get :users
   end
-  root to: "homes#index"
+  root to: "donations#index"
   get 'homes/index'
 
   resources :donations

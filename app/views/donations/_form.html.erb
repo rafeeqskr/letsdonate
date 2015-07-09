@@ -1,4 +1,4 @@
-<%= form_for(@donation) do |f| %>
+<%= form_for(@donation,html: {class: "form-horizontal"}) do |f| %>
   <% if @donation.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
@@ -11,28 +11,92 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <label class="ld_label col-sm-2" for="email">Name:</label>
+    <div class="col-sm-6">
+      <%= f.text_field :name, class: "form-control", placeholder: "Enter Name"%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+
+  <div class="form-group">
+    <label class="ld_label col-sm-2" for="email">Description:</label>
+    <div class="col-sm-6">
+      <%= f.text_area :description, class: "form-control", placeholder: "Enter Description"%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
+
+  <div class="form-group">
+    <label class="ld_label col-sm-2" for="email">Category:</label>
+    <div class="col-sm-6">
+      <%= f.select(:category, options_for_select([["Clothes", "Clothes", {class: "dropdown-menu"}], ["Food", "Food", {class: "dropdown-menu"}], ["Books", "Books", {class: "dropdown-menu"}], ["Furniture", "Furniture", {class: "dropdown-menu"}]]), {}, { :class => 'form-control' }) %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :expiry %><br>
-    <%= f.datetime_select :expiry %>
+
+  <div class="form-group" style="display:none">
+    <label class="ld_label col-sm-2" for="email">Expiry:</label>
+    <div class="col-sm-6">
+      <%= f.datetime_select :expiry, {class: "form-control"}%>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
+
+  <div class="form-group">
+    <label class="ld_label col-sm-2" for="email">Expiry:</label>
+    <div class="col-sm-6">
+      <%= text_field_tag "donation[expiry_clone_field]", nil, {class: "form-control datepicker"} %>
+    </div>
   </div>
-    <%= f.hidden_field  :user_id, :value => current_user.id %>
+
+  <div class="form-group">
+    <label class="ld_label col-sm-2" for="email">City:</label>
+    <div class="col-sm-6">
+      <%= f.text_field :city, {class: "form-control"}%>
+    </div>
+  </div>
+
+
+  <div class="form-group">
+    <label class="ld_label col-sm-2" for="email">User-id:</label>
+    <div class="col-sm-6">
+      <%= f.number_field :user_id, {class: "form-control"}%>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<!-- <div class="account-top">
+							<h3>Register</h3>
+							<div class="your-at">
+							<div class="your-top-at">
+									<form>
+									<input placeholder="First Name" type="text">
+									<input placeholder="Last Name" type="text">
+									<input placeholder="User Name" type="text">
+								<input placeholder="Email Id" type="text">
+									<input placeholder="password" type="password">
+
+								<input value="Register" type="submit">
+								</form>
+								<a class="news-letter" href="#">
+						 <label class="checkbox"><input name="checkbox" checked="" type="checkbox"><i> </i>Remember Me</label>
+					   </a>
+								</div>
+								<p class="connect-in">Connect with <a href="#">Facebook</a></p>
+								<p class="connect-in">Connect with <a href="#">Twitter</a></p>
+							</div>
+
+						</div> -->
