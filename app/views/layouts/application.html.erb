@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="logo">
-	<a href="index.html"><img src="images/log.png"> </a>
+	<a href="index.html"><img src="<%= asset_url "logov2.png" %>"> </a>
 </div>
 	<div class="header">
 	<div class="top-nav">
@@ -30,15 +30,9 @@
 						<div class="clearfix"> </div>
 					</ul>
 
-					<!--script-->
-				<script>
-					$("span.menu").click(function(){
-						$(".top-nav ul").slideToggle(500, function(){
-						});
-					});
-			</script>
-				</div>
 
+				</div>
+<%= yield %>
 
 	<div class="clearfix">
 		<%= yield %>
