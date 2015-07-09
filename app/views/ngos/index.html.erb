@@ -35,9 +35,11 @@
 
 
   </div>
-  <div id='user_content'>
+  <div class="col-md-8 your">
     <p id='user_content' class="connect">
-      rafeeq
+      <% @ngos.first.users.each do |user| %>
+        <%= render 'user_list', :user => user, :ngo =>  @ngos.first %>
+      <% end %>
     </p>
   </div>
 </div>

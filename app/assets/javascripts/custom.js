@@ -1,11 +1,19 @@
 $(document).ready(function() {
+
+  $('.remove_row').click(function(){
+    $(this).closest('.row').remove();
+  });
+
   $('.get_users').click(function(){
     $.ajax({
   			type : "GET",
   			url : '/ngos/' + $(this).data("id") + '/users',
   			dataType : "html",
   			success : function(data) {
-          console.log(data);
+          $('#user_content').html(data);
+          $('.remove_row').click(function(){
+            $(this).closest('.row').remove();
+          });
   			}
   		});
   });
