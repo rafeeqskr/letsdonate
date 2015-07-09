@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  resources :requests
+  resources :ngos
   root to: "homes#index"
   get 'homes/index'
 

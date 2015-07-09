@@ -1,14 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Letsdonate</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+<title>Let's Donate | India's First Donation-Based Crowdfunding Platform</title>
+
+<%= stylesheet_link_tag    'application', media: 'all' %>
+
+<!--//theme-style-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Donation-Based Crowdfunding Platform" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<%= csrf_meta_tags %>
 </head>
 <body>
+<div class="logo">
+	<a href="index.html"><img src="<%= asset_url "logov2.png" %>"> </a>
+</div>
+	<div class="header">
+	<div class="top-nav">
+					<span class="menu"><img src="images/menu.png" alt=""> </span>
 
+					<ul>
+						<li ><a href="index.html">Home</a></li>
+						<li><a href="about.html" >About</a></li>
+						<li><a href="404.html" >Services</a></li>
+						<li class="active"><a href="portfolio.html" >Portfolio</a></li>
+						<li><a href="blog.html" >Blog</a></li>
+						<li><a href="#contact"  >Contact</a></li>
+						<div class="clearfix"> </div>
+					</ul>
+
+
+				</div>
 <%= yield %>
 
+	<div class="clearfix">
+		<%= yield %>
+	 </div>
+	</div>
+	<div class="footer">
+	<p >© 2015 Ecom All Rights Reserved | Designed by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+	</div>
+	<%= javascript_include_tag 'application' %>
 </body>
 </html>

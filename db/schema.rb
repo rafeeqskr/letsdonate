@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150709131115) do
+ActiveRecord::Schema.define(version: 20150709131213) do
 
   create_table "donations", force: :cascade do |t|
     t.string   "name"
@@ -22,6 +22,16 @@ ActiveRecord::Schema.define(version: 20150709131115) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "ngos", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "owner_id"
+    t.string   "city"
+    t.text     "details"
+    t.string   "logo_uid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
