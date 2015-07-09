@@ -6,4 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :donations, dependent: :destroy
   has_many :requests, dependent: :destroy
+  has_many :owner_ngos, :class_name => 'Ngo', :foreign_key => 'owner_id'
+  has_and_belongs_to_many :ngos
 end

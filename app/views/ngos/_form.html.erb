@@ -10,28 +10,34 @@
       </ul>
     </div>
   <% end %>
+<div class="row">
+  <div class="col-md-6">
+    <div class="field">
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <div class="field">
+      <%= f.label :city %><br>
+      <%= f.text_field :city %>
+    </div>
+    <div class="field">
+      <%= f.label :details %><br>
+      <%= f.text_area :details %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :owner_id %><br>
-    <%= f.number_field :owner_id %>
+  <div class="col-md-6">
+    <div class="field">
+      <%= f.label :logo_uid %><br>
+      <%= f.file_field :logo %>
+    </div>
+  
+
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
-  <div class="field">
-    <%= f.label :details %><br>
-    <%= f.text_area :details %>
-  </div>
-  <div class="field">
-    <%= f.label :logo_uid %><br>
-    <%= f.file_field :logo %>
-  </div>
+</div>
+
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Add' %>
   </div>
 <% end %>

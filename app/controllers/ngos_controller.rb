@@ -25,6 +25,7 @@ class NgosController < ApplicationController
   # POST /ngos.json
   def create
     @ngo = Ngo.new(ngo_params)
+    @ngo.owner = current_user
 
     respond_to do |format|
       if @ngo.save

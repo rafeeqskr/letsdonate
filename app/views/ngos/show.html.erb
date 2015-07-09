@@ -21,8 +21,9 @@
 </p>
 
 <p>
-  <strong>Logo uid:</strong>
-  <%= @ngo.logo_uid %>
+  <strong>Logo </strong>
+  <img src='<%= @ngo.logo.url %>' height="30" width="30">
+
 </p>
 
 <%= link_to 'Edit', edit_ngo_path(@ngo) %> |
