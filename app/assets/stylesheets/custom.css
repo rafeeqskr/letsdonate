@@ -14,3 +14,12 @@ background: #DC483A;
   margin: 1em 0 0.5em;
   text-align: center;
 }
+
+.ld_form_lg {
+  position: relative;
+  left: 90px;
+}
+
+.ld_form_sm {
+
+}

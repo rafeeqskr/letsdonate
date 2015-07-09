@@ -1,3 +1,4 @@
+<div class='ld_form_lg'>
 <%= form_for(@donation,html: {class: "form-horizontal"}) do |f| %>
   <% if @donation.errors.any? %>
     <div id="error_explanation">
@@ -28,7 +29,7 @@
   <div class="form-group">
     <label class="ld_label col-sm-2" for="email">Category:</label>
     <div class="col-sm-6">
-      <%= f.select(:category, options_for_select([["Clothes", "Clothes", {class: "dropdown-menu"}], ["Food", "Food", {class: "dropdown-menu"}], ["Books", "Books", {class: "dropdown-menu"}], ["Furniture", "Furniture", {class: "dropdown-menu"}]]), {}, { :class => 'form-control' }) %>
+      <%= f.select(:category, options_for_select([["Clothes", "Clothes"], ["Food", "Food"], ["Books", "Books"], ["Furniture", "Furniture"]]), {}, { :class => 'form-control' }) %>
     </div>
   </div>
 
@@ -52,19 +53,22 @@
       <%= f.text_field :city, {class: "form-control"}%>
     </div>
   </div>
-
+  <%= f.hidden_field :user_id, {class: "form-control", value: current_user.present? ? current_user.id : nil} %>
 
   <div class="form-group">
-    <label class="ld_label col-sm-2" for="email">User-id:</label>
-    <div class="col-sm-6">
-      <%= f.number_field :user_id, {class: "form-control"}%>
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-3">
+      <%= f.submit class: 'btn' %>
     </div>
   </div>
 
+
   <div class="actions">
-    <%= f.submit %>
+
   </div>
 <% end %>
+</div>
 
 
 

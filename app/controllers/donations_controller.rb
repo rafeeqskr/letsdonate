@@ -1,6 +1,8 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!, :except => [:show, :index]
+
   # GET /donations
   # GET /donations.json
   def index
@@ -24,6 +26,7 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.json
   def create
+    sd
     @donation = Donation.new(donation_params)
 
     respond_to do |format|
