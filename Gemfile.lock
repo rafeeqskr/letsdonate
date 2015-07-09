@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.0)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
@@ -59,6 +60,10 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dragonfly (1.0.10)
+      addressable (~> 2.3)
+      multi_json (~> 1.0)
+      rack (>= 1.3.0)
     erubis (2.7.0)
     execjs (2.5.2)
     globalid (0.3.5)
@@ -157,6 +162,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
+  dragonfly
   jbuilder (~> 2.0)
   jquery-rails
   rails (= 4.2.1)
@@ -167,6 +173,3 @@ DEPENDENCIES
   turbolinks
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
-
-BUNDLED WITH
-   1.10.1
