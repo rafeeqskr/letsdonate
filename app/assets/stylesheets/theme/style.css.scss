@@ -1,4 +1,4 @@
-/*--A Design by W3layouts 
+/*--A Design by W3layouts
 Author: W3layout
 Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
@@ -6,7 +6,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
 @font-face {
     font-family: 'LatoRegular';
-    src:url(../fonts/Lato-Regular-webfont.ttf) format('truetype');
+    src:asset-url("Lato-Regular-webfont.ttf") format('truetype');
 }
 body{
 	background:#f0f0f0;
@@ -21,15 +21,28 @@ body a{
 }
 ul{
 	padding: 0;
-	margin: 0;	
+	margin: 0;
 }
 
 h1,h2,h3,h4,h5,h6,label,p{
-	margin:0;	
+	margin:0;
 }
 .logo{
-	text-align:center;
-	padding:3em 0 0;	
+
+	padding: 2em 0 0;
+  margin: auto 5.3em;
+}
+.logo a {
+    text-decoration: none !important;
+}
+.logo h3, .logo h2, .logo h1 {
+    display: inline;
+  vertical-align: bottom;
+  margin-left: 1em;
+  color: #DC483A;
+}
+.logo img {
+    width: 260px;
 }
 .top-nav {
    background: #DC483A;
@@ -38,15 +51,15 @@ text-align:center;
 }
 .top-nav ul li {
 	display:inline-block;
-	
+
 }
 .top-nav ul li  a {
 	display: inline-block;
 	color: #fff;
-	text-decoration: none;	
+	text-decoration: none;
 	font-size: 1.3em;
 	padding: 1.5em;
-	
+
 }
 .top-nav ul li span{
 	font-size:1em;
@@ -84,7 +97,7 @@ ul.profile li{
 	border-bottom: 1px solid #E7E7E7;
 }
 ul.profile li a{
-	color:#2d2d2d;	
+	color:#2d2d2d;
 	background:#fff;
 	font-size:1em;
 	text-decoration:none;
@@ -92,7 +105,7 @@ ul.profile li a{
 }
 ul.profile li a span {
   padding: 0 2em 0;
-  
+
 }
 ul.profile li a span.five{
 	color:#fff;
@@ -104,7 +117,7 @@ ul.profile li a span.five{
   border-radius:50px;
   padding: 0;
   margin: 0 0em 0 3em;
-  
+
 }
 ul.profile li a i.glyphicon.glyphicon-cog,ul.profile li a i.glyphicon.glyphicon-envelope ,
 ul.profile li a i.glyphicon.glyphicon-user,ul.profile li a i.glyphicon.glyphicon-arrow-left{
@@ -232,7 +245,7 @@ p.agree a:hover{
 .title{
 	background:#fff;
 	padding:1.5em 1em;
-	 
+
 }
 .title h4{
   font-size: 1.2em;
@@ -265,11 +278,11 @@ p.agree a:hover{
 	text-align: center;
   width: 100%;
 }
-.more a{	
+.more a{
 	text-decoration:none;
 	border:1px solid #dc483a;
 	color:#DC483A;
-	padding:0.6em 1em;	
+	padding:0.6em 1em;
 	font-size: 1em;
 	background:none;
 }
@@ -277,7 +290,7 @@ p.agree a:hover{
 	background:#DC483A;
 	color:#fff;
 	border:1px solid #DC483A;
-	padding:0.6em 1em;	
+	padding:0.6em 1em;
 }
 /*----*/
 .account-in {
@@ -288,7 +301,7 @@ p.agree a:hover{
 	color:#DC483A;
 	font-size:1.2em;
 	padding:1em;
-	background:#2d2d2d;	
+	background:#2d2d2d;
 }
 .your-top {
   margin-bottom: 2em;
@@ -296,7 +309,7 @@ p.agree a:hover{
 .your{
 	background:#fff;
 	padding:1.5em 1em;
-	
+
 }
 .your input[type="text"],.your input[type="password"]{
 	background:none;
@@ -306,7 +319,7 @@ p.agree a:hover{
 	padding:0.8em;
 	font-size:1em;
 	color:#D2D1D1;
-	border:1px solid #eee;	
+	border:1px solid #eee;
 }
 .your input[type="submit"]{
 	background: #DC483A;
@@ -398,7 +411,7 @@ float:left;
 .bed-in p{
 color: #2d2d2d;
   font-size: 0.9em;
-  
+
 }
 .bed-in label{
 	color: #DC483A;
@@ -413,7 +426,7 @@ a.buy{
 	background:#2d2d2d;
 	display:block;
 }
-a.buy:hover{	
+a.buy:hover{
 	background:#dc483a;
 }
 /*----*/
@@ -424,7 +437,7 @@ a.buy:hover{
 }
 .title-blue h4{
   font-size: 1.4em;
-  
+
 }
 .title-blue h4 a{
   text-decoration:none;
@@ -457,7 +470,7 @@ ul.eye li a{
 ul.eye li a i.glyphicon.glyphicon-eye-open,ul.eye li a i.glyphicon.glyphicon-heart{
 	color:#DC483A;
 	font-size:1em;
-	
+
 	  display: block;
 }
 .eye-top {
@@ -497,7 +510,7 @@ h4.out{
 }
 .out-top p{
 	color:#DC483A;
-	font-size:1.2em;	
+	font-size:1.2em;
 }
 .top-at {
 	float:left;
@@ -505,7 +518,7 @@ h4.out{
 }
 .top-at img{
 	border-radius:100px;
-	
+
 }
 .online-top{
 	background:#fff;
@@ -541,7 +554,7 @@ label.round{
 	height:10px;
 	display:block;
 	float:right;
-	  border-radius: 100px;    
+	  border-radius: 100px;
 	    margin-top: 8%;
 }
 .col-full{
@@ -603,7 +616,7 @@ li.item1 ,li.item2{
 	font-size: 1.1em;
 	text-decoration:none;
 }
-.menu ul li a {	
+.menu ul li a {
 	width: 100%;
 	display: block;
 	position: relative;
@@ -651,9 +664,9 @@ ul.cute li{
 	padding: 0 0 0 5.5em;
 }
 /*---*/
-.search{	
+.search{
 	position:relative;
-	background:#fff;	
+	background:#fff;
 }
 .search input[type="text"] {
 	outline: none;
@@ -662,9 +675,9 @@ ul.cute li{
 	width: 87%;
 	border: none;
 	font-size:1em;
-	color:#2d2d2d;	
+	color:#2d2d2d;
 }
-.search input[type="submit"] {	
+.search input[type="submit"] {
 width: 16px;
   height: 16px;
   padding: 0px 1px;
@@ -711,7 +724,7 @@ p.sit{
 }
 .top-women a:hover{
 	color:#fff;
-	background:#dc483a;	
+	background:#dc483a;
 	border:1px solid #DC483A;
 	padding:0.5em 1em;
 }
@@ -765,7 +778,7 @@ p.sit{
 .audio-top{
 	background:#fff;
 	padding:1.8em 1.5em;
-	text-align:center;	
+	text-align:center;
 }
 .audio-grid h5{
 	color:#2d2d2d;
@@ -781,7 +794,7 @@ p.sit{
 	z-index:0;
 }
 .next-top li{
-	display:inline-block;	
+	display:inline-block;
 }
 .next-top li i{
 	color:#2d2d2d;
@@ -790,7 +803,7 @@ p.sit{
 	left: 0%;
 	font-size:1em;
 }
-.next-top li i.glyphicon.glyphicon-forward{	
+.next-top li i.glyphicon.glyphicon-forward{
 	left: 30%;
 }
 /*----*/
@@ -802,7 +815,7 @@ p.sit{
 	color:#DC483A;
 	font-size:1.2em;
 	padding:1em;
-	background:#2d2d2d;	
+	background:#2d2d2d;
 }
 .your-top-at {
   margin-bottom: 2em;
@@ -810,7 +823,7 @@ p.sit{
 .your-at{
 	background:#fff;
 	padding:1.5em 1em;
-	
+
 }
 .your-at input[type="text"],.your-at input[type="password"]{
 	background:none;
@@ -820,7 +833,7 @@ p.sit{
 	padding:0.8em;
 	font-size:1em;
 	color:#D2D1D1;
-	border:1px solid #eee;	
+	border:1px solid #eee;
 }
 .your-at input[type="submit"]{
 	background: #DC483A;
@@ -899,7 +912,7 @@ p.sit{
 	opacity: 1;
 }
 .news-letter:hover {
-	
+
 }
 p.connect-in{
 	background:#eee;
@@ -937,6 +950,7 @@ padding:0 0 2em;
 .lamp {
   height: 331px;
   padding: 16.5em 0 0;
+}
 }
 @media(max-width:1280px){
 ul.profile li a span.five {
