@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="logo">
-	<a href="index.html"><img src="<%= asset_url "logov2.png" %>"> </a>
+	<a href="index.html"><img src="<%= asset_url "logov2.png" %>"> <h2> India's First Donation-Based Crowdfunding Platform </h2> </a>
 </div>
 	<div class="header">
 	<div class="top-nav">
@@ -34,7 +34,9 @@
 				</div>
 <%= yield %>
 
-	<div class="clearfix"> </div>
+	<div class="clearfix">
+		<%= yield %>
+	 </div>
 	</div>
 	<div class="footer">
 	<p >© 2015 Ecom All Rights Reserved | Designed by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
