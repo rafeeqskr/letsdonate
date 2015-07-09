@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ngo.name %>
+</p>
+
+<p>
+  <strong>Owner:</strong>
+  <%= @ngo.owner_id %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @ngo.city %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @ngo.details %>
+</p>
+
+<p>
+  <strong>Logo uid:</strong>
+  <%= @ngo.logo_uid %>
+</p>
+
+<%= link_to 'Edit', edit_ngo_path(@ngo) %> |
+<%= link_to 'Back', ngos_path %>
