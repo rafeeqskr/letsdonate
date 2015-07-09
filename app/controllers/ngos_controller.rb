@@ -1,5 +1,5 @@
 class NgosController < ApplicationController
-  before_action :set_ngo, only: [:show, :edit, :update, :destroy]
+  before_action :set_ngo, only: [:show, :edit, :update, :destroy, :users]
 
   # GET /ngos
   # GET /ngos.json
@@ -14,6 +14,7 @@ class NgosController < ApplicationController
 
   # GET /ngos/new
   def new
+    @users = User.where.not(:id => current_user.try(:id))
     @ngo = Ngo.new
   end
 
@@ -29,6 +30,7 @@ class NgosController < ApplicationController
 
     respond_to do |format|
       if @ngo.save
+        @ngo.add_users(params[:ngo][:users])
         format.html { redirect_to @ngo, notice: 'Ngo was successfully created.' }
         format.json { render :show, status: :created, location: @ngo }
       else
@@ -61,11 +63,15 @@ class NgosController < ApplicationController
       format.json { head :no_content }
     end
   end
+  def users
+    @users = @ngo.users
+    render 'users', :layout => nil
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_ngo
-      @ngo = Ngo.find(params[:id])
+      @ngo = Ngo.find(params[:id] || params[:ngo_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

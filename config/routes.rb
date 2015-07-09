@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :requests
-  resources :ngos
+  resources :ngos do
+    get :users
+  end
   root to: "donations#index"
   get 'homes/index'
 

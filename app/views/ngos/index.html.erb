@@ -12,9 +12,10 @@
 <div class="row">
   <div class="col-md-4">
 
-    <div class="">
+    <div class="your">
         <% @ngos.each do |ngo| %>
-      <a href="#">
+        <p class="connect">
+      <a href="#" data-id="<%= ngo.id %>" class="get_users">
         <div class="row">
           <div class="top-at col-md-3">
             <img class="img-responsive" src="<%= ngo.logo.url %>" alt="">
@@ -28,10 +29,15 @@
 
           </div>
           <div class="clearfix"> </div>
-      </div></a>
+      </div></a></p>
   <% end %>
     </div>
 
 
+  </div>
+  <div id='user_content'>
+    <p id='user_content' class="connect">
+      rafeeq
+    </p>
   </div>
 </div>
