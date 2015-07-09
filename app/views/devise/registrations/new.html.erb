@@ -1,11 +1,21 @@
+<div class="row">
+
+
+<div class='col-lg-2'></div>
+<div class='col-lg-8'>
+
+
+
 <div class="account-top">
   <h3>Sign up</h3>
   <div class="your-at col-md">
+
+<div style="left: 90px; position: relative; padding-top: 25px;">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
       <%= devise_error_messages! %>
 
       <div class="form-group">
-        <label class="ld_label col-sm-2" for="email">Email:</label>
+        <label class="ld_label col-sm-2" for="email" style='top: -11px;'>Email:</label>
         <div class="col-sm-6">
           <%= f.email_field :email, class: "form-control", placeholder: "Enter email", autofocus: true %>
         </div>
@@ -28,7 +38,7 @@
       </div> -->
 
       <div class="form-group">
-        <label class="ld_label col-sm-2" for="password">Password confirmation:</label>
+        <label class="ld_label col-sm-2" for="password_confirmation" style='top: -9px;'>Password confirmation:</label>
         <div class="col-sm-6">
           <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Re-enter Password", autocomplete: "off" %>
         </div>
@@ -48,16 +58,20 @@
       </div>
 
     <% end %>
-
-    <div class="form-horizontal">
+</div>
+    <!-- <div class="form-horizontal">
       <div class="form-group">
-      <label class="ld_label col-sm-2" for="password">Already have an account</label>
+      <label class="ld_label col-sm-2" for="password">Have an account?</label>
       <div class="col-sm-3">
         <%= render "devise/shared/links" %>
       </div>
     </div>
-    </div>
+    </div> -->
 
   </div>
+
+</div>
+
+</div>
 
 </div>
