@@ -1,63 +1,91 @@
 
+<div class="row">
+  <div class="col-md-6">
+    <div class='ld_form_lg'>
+      <%= form_for(@ngo,html: {class: "form-horizontal"}) do |f| %>
+      <% if @ngo.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
 
-
-        <div class='ld_form_lg'>
-          <%= form_for(@ngo,html: {class: "form-horizontal"}) do |f| %>
-          <% if @ngo.errors.any? %>
-          <div id="error_explanation">
-            <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
-
-            <ul>
-              <% @ngo.errors.full_messages.each do |message| %>
-              <li><%= message %></li>
-              <% end %>
-            </ul>
-          </div>
+        <ul>
+          <% @ngo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
           <% end %>
+        </ul>
+      </div>
+      <% end %>
 
-          <div class="form-group">
-            <label class="ld_label col-sm-2" for="email">Name:</label>
-            <div class="col-sm-6">
-              <%= f.text_field :name, class: "form-control", placeholder: "Enter Name", style: "color: #6E6363;", :required => true %>
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="ld_label col-sm-2" for="email">City:</label>
-            <div class="col-sm-6">
-              <%= f.text_field :city, class: "form-control", placeholder: "Enter Your City", style: "color: #6E6363;", :required => true %>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="ld_label col-sm-2" for="email">Details:</label>
-            <div class="col-sm-6">
-              <%= f.text_area :details, class: "form-control", placeholder: "Enter Your details", style: "color: #6E6363;"%>
-            </div>
-          </div>
-          <div class="form-group ">
-            <label class="ld_label col-sm-2" for="logo">Logo:</label>
-            <div class="col-sm-6" style="padding-top: 11px;">
-             <%= f.file_field :logo , class: "form-control" %>
-          </div>
-          </div>
-          <%= f.hidden_field :user_id, {class: "form-control", value: current_user.present? ? current_user.id : nil} %>
-
-
-
-            <!-- <%#= f.select(:users, options_for_select([["Clothes", "Clothes"], ["Food", "Food"], ["Books", "Books"], ["Furniture", "Furniture"]]),{ :prompt => "Please select"}, { :multiple => true, :size => 5 }) %> -->
-
-
-          <div class="form-group">
-            <div class="col-sm-2">
-            </div>
-            <div class="col-sm-3">
-              <%= f.submit class: 'btn' %>
-            </div>
-          </div>
-
-
-          <div class="actions">
-
-          </div>
-          <% end %>
+      <div class="form-group">
+        <label class="ld_label col-sm-2" for="email">Name:</label>
+        <div class="col-sm-6">
+          <%= f.text_field :name, class: "form-control", placeholder: "Enter Name", style: "color: #6E6363;", :required => true %>
         </div>
+      </div>
+
+      <div class="form-group">
+        <label class="ld_label col-sm-2" for="email">City:</label>
+        <div class="col-sm-6">
+          <%= f.text_field :city, class: "form-control", placeholder: "Enter Your City", style: "color: #6E6363;", :required => true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="ld_label col-sm-2" for="email">Details:</label>
+        <div class="col-sm-6">
+          <%= f.text_area :details, class: "form-control", placeholder: "Enter Your details", style: "color: #6E6363;"%>
+        </div>
+      </div>
+      <div class="form-group ">
+        <label class="ld_label col-sm-2" for="logo">Logo:</label>
+        <div class="col-sm-6" style="padding-top: 11px;">
+          <%= f.file_field :logo , class: "form-control" %>
+        </div>
+      </div>
+      <%= f.hidden_field :user_id, {class: "form-control", value: current_user.present? ? current_user.id : nil} %>
+
+
+
+      <!-- <%#= f.select(:users, options_for_select([["Clothes", "Clothes"], ["Food", "Food"], ["Books", "Books"], ["Furniture", "Furniture"]]),{ :prompt => "Please select"}, { :multiple => true, :size => 5 }) %> -->
+
+
+      <div class="form-group">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-3">
+          <%= f.submit class: 'btn' %>
+        </div>
+      </div>
+
+
+      <div class="actions">
+
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <% @ngo.users.each_with_index do |user,i| %>
+    <div class="row">
+    <div class="form-group col-md-10">
+       <label class="ld_label" for="email">Name : <%= user.name %>,</br>  Email : <%= user.email %></label>
+    </div>
+    <div class="form-group col-md-2">
+      <%= link_to 'Destroy', ngo_user_path(@ngo,user), method: :delete, data: { confirm: 'Are you sure?' }, :class => 'remove_row', :remote => true %>
+    </div>
+  </div>
+    <% end %>
+    <%= form_tag ngo_users_path(@ngo) do %>
+    <div class="form-group ">
+      <label class="ld_label" for="logo">Selct user for add</label>
+      <div class="" >
+        <select name='ngo[user]'class='submit_form'>
+          <option >Select</option>
+          <% @other_users.each do |user| %>
+          <option value="<%= user.id %>"><%= user.name %></option>
+          <% end %>
+        </select>
+      </div>
+    </div>
+    <% end %>
+
+  </div>
+</div>

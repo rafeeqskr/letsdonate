@@ -1,5 +1,10 @@
 $(document).ready(function() {
 
+  $('.submit_form').change(function(){
+    if( $(this).val() != "Select")
+    $('.submit_form').closest('form').trigger('submit');
+  });
+
   $('.remove_row').click(function(){
     $(this).closest('.row').remove();
   });
@@ -36,7 +41,7 @@ $(document).ready(function(){
   //  $("#donation_expiry_4i").val("00");
   //  $("#donation_expiry_5i").val("00");
 
- }); 
+ });
 
 $(".imgLiquidFill").imgLiquid({fill:true});
 // expiry date for food category

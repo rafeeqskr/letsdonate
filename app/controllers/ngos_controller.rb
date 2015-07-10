@@ -1,5 +1,5 @@
 class NgosController < ApplicationController
-  before_action :set_ngo, only: [:show, :edit, :update, :destroy, :users, :delete_user]
+  before_action :set_ngo, only: [:show, :edit, :update, :destroy, :users, :delete_user, :add_users]
 
   # GET /ngos
   # GET /ngos.json
@@ -20,6 +20,8 @@ class NgosController < ApplicationController
 
   # GET /ngos/1/edit
   def edit
+    @users = @ngo.users
+    @other_users = User.where.not(:id => @users.select(:id))
   end
 
   # POST /ngos
@@ -70,6 +72,13 @@ class NgosController < ApplicationController
     user = @ngo.users.where(:id => params[:id]).first
     @ngo.users.delete(user.id) if user
     render :nothing => true, :status => 200, :content_type => 'text/html'
+  end
+  def add_users
+    u = User.where(:id => params[:ngo][:user].to_i).first
+    if u
+      @ngo.users << u
+    end
+    redirect_to :back, notice: 'user added successfully.'
   end
 
   private

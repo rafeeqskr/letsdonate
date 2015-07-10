@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :ngos do
+    post :add_users, :as => :users 
     get :users
     delete "user/:id" => 'ngos#delete_user', :as => 'user'
   end
