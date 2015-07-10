@@ -64,6 +64,14 @@ class RequestsController < ApplicationController
     end
   end
 
+  def accept_request
+    @request.update(status: "Accepted")
+    respond_to do |format|
+      format.html { redirect_to user_donations_donations_path, notice: 'Request was successfully accepted.' }
+      format.json { head :no_content }
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_request

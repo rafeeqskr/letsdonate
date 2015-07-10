@@ -36,7 +36,7 @@ $(document).ready(function(){
   //  $("#donation_expiry_4i").val("00");
   //  $("#donation_expiry_5i").val("00");
 
- }); 
+ });
 
 $(".imgLiquidFill").imgLiquid({fill:true});
 // expiry date for food category
@@ -49,3 +49,10 @@ $(".imgLiquidFill").imgLiquid({fill:true});
  });
 
 });
+
+
+window.setTimeout(function() {
+  $(".alert").fadeTo(1500, 0).slideUp(100, function(){
+    $(this).remove();
+  });
+}, 5000);
