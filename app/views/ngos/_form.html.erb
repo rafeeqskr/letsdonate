@@ -1,53 +1,58 @@
-<div class="account-top">
 
-          <div class="your-at">
-          <div class="your-top-at">
 
-            <%= form_for(@ngo) do |f| %>
-              <% if @ngo.errors.any? %>
-                <div id="error_explanation">
-                  <h2><%= pluralize(@ngo.errors.count, "error") %> prohibited this ngo from being saved:</h2>
 
-                  <ul>
-                  <% @ngo.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
-                  <% end %>
-                  </ul>
-                </div>
+        <div class='ld_form_lg'>
+          <%= form_for(@ngo,html: {class: "form-horizontal"}) do |f| %>
+          <% if @ngo.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+            <ul>
+              <% @ngo.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
               <% end %>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="field">
-                  <%= f.label :name %><br>
-                  <%= f.text_field :name %>
-                </div>
+            </ul>
+          </div>
+          <% end %>
 
-                <div class="field">
-                  <%= f.label :city %><br>
-                  <%= f.text_field :city %>
-                </div>
-                <div class="field">
-                  <%= f.label :details %><br>
-                  <%= f.text_area :details, :class => 'col-md-12', :rows => '5' %>
-                </div>
-
-                <div class="field">
-                  <%= f.label :logo%><br>
-                  <%= f.file_field :logo %>
-                </div>
-
-
-
-
-              </div>
+          <div class="form-group">
+            <label class="ld_label col-sm-2" for="email">Name:</label>
+            <div class="col-sm-6">
+              <%= f.text_field :name, class: "form-control", placeholder: "Enter Name", style: "color: #6E6363;", :required => true %>
             </div>
+          </div>
+
+          <div class="form-group">
+            <label class="ld_label col-sm-2" for="email">City:</label>
+            <div class="col-sm-6">
+              <%= f.text_field :city, class: "form-control", placeholder: "Enter Your City", style: "color: #6E6363;", :required => true %>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="ld_label col-sm-2" for="email">Details:</label>
+            <div class="col-sm-6">
+              <%= f.text_area :details, class: "form-control", placeholder: "Enter Your details", style: "color: #6E6363;"%>
+            </div>
+          </div>
+          <div class="form-group ">
+            <label class="ld_label col-sm-2" for="logo">Logo:</label>
+            <div class="col-sm-6" style="padding-top: 11px;">
+             <%= f.file_field :logo , class: "form-control" %>
+          </div>
+          </div>
+          <%= f.hidden_field :user_id, {class: "form-control", value: current_user.present? ? current_user.id : nil} %>
+
+          <div class="form-group">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-3">
+              <%= f.submit class: 'btn' %>
+            </div>
+          </div>
 
 
-              <div class="actions col-md-6">
-                <%= f.submit 'Add'%>
-              </div>
-            <% end %>
-            <a class="news-letter" href="#">
+          <div class="actions">
 
-
+          </div>
+          <% end %>
         </div>

@@ -3,9 +3,11 @@
   <div class="col-md-8">
     <h2>Your Ngos</h2>
   </div>
-  <div class="col-md-4">
+  <% if current_user %>
+  <div class="col-md-4 top-women" style="background: none;" >
     <%= link_to 'Add New Ngo', new_ngo_path %>
   </div>
+  <% end %>
 </div>
 
 <br>
@@ -18,7 +20,7 @@
         <a href="#" data-id="<%= ngo.id %>" class="get_users">
           <div class="row">
             <div class="top-at col-md-3">
-              <img class="img-responsive" src="<%= ngo.logo.url %>" alt="">
+              <img class="img-responsive" src="<%= ngo.logo.url if ngo.logo %>" alt="">
             </div>
             <div class="top-at col-md-3">
               <%= ngo.name %>
@@ -37,8 +39,10 @@
       </div>
       <div class="col-md-8 your">
         <p id='user_content' class="connect">
+          <% if @ngos.present? %>
           <% @ngos.first.users.each do |user| %>
           <%= render 'user_list', :user => user, :ngo =>  @ngos.first %>
+          <% end %>
           <% end %>
         </p>
       </div>
