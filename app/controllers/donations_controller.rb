@@ -1,6 +1,8 @@
 class DonationsController < ApplicationController
   before_action :set_donation, only: [:show, :edit, :update, :destroy]
 
+  before_action :authenticate_user!, :except => [:show, :index]
+
   # GET /donations
   # GET /donations.json
   def index
@@ -24,6 +26,7 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.json
   def create
+    sd
     @donation = Donation.new(donation_params)
 
     respond_to do |format|
@@ -69,6 +72,7 @@ class DonationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def donation_params
-      params.require(:donation).permit(:name, :description, :category, :expiry, :city, :user_id)
+      params[:donation]["expiry(1i)"], params[:donation]["expiry(2i)"], params[:donation]["expiry(3i)"], params[:donation]["expiry(4i)"], params[:donation]["expiry(5i)"] = params[:donation][:expiry_clone_field].split("-")[2], params[:donation][:expiry_clone_field].split("-")[1], params[:donation][:expiry_clone_field].split("-")[0], "00", "00"
+      params.require(:donation).permit(:name, :description, :category, :expiry, :city, :user_id, :expiry_clone_field)
     end
 end

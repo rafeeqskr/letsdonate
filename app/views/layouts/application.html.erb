@@ -4,7 +4,7 @@
 <title>Let's Donate | India's First Donation-Based Crowdfunding Platform</title>
 
 <%= stylesheet_link_tag    'application', media: 'all' %>
-
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <!--//theme-style-->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,12 +21,18 @@
 					<span class="menu"><img src="images/menu.png" alt=""> </span>
 
 					<ul>
-						<li ><a href="<%= donations_path%>">Home</a></li>
+						<li ><a href="/">Home</a></li>
 						<li><a href="<%= ngos_path %>" >NGOs</a></li>
 						<li><a href="#" >Services</a></li>
 						<li class="active"><a href="portfolio.html" >Portfolio</a></li>
 						<li><a href="blog.html" >Blog</a></li>
 						<li><a href="#contact"  >Contact</a></li>
+						<% if current_user.present? %>
+							<li><a href=<%= destroy_user_session_path %> data-method='delete'  >Logout</a></li>
+						<% else %>
+							<li><a href=<%= new_user_registration_path %>>Signup</a></li>
+							<li><a href=<%= user_session_path %>  >Login</a></li>
+						<% end %>
 						<div class="clearfix"> </div>
 					</ul>
 
@@ -41,5 +47,6 @@
 	<p >© 2015 Ecom All Rights Reserved | Designed by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 	</div>
 	<%= javascript_include_tag 'application' %>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 </body>
 </html>

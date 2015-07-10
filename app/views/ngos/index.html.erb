@@ -1,24 +1,45 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-8">
-  	<h2>Your Ngos</h2>
+    <h2>Your Ngos</h2>
   </div>
-  <div class="col-md-4 top-women" style="background: none;">
+  <div class="col-md-4">
     <%= link_to 'Add New Ngo', new_ngo_path %>
   </div>
 </div>
-<% @ngos.each do |ngo| %>
-<div class="col-md-4 top-book">
-  <div class="book">
-    <div class="book-top">
-      <a href="#"><img class="img-responsive" src="<%= ngo.logo.thumb("48x48").url %>" alt=""></a>
 
-    </div>
-    <div class="title">
-      <h4><a href="#"><%= ngo.name %></a></h4>
-      <p><%= ngo.details %></p>
-        <span><%= ngo.city %></span>
+<br>
+<div class="row">
+  <div class="col-md-4">
+
+    <div class="your">
+      <% @ngos.each do |ngo| %>
+      <p class="connect">
+        <a href="#" data-id="<%= ngo.id %>" class="get_users">
+          <div class="row">
+            <div class="top-at col-md-3">
+              <img class="img-responsive" src="<%= ngo.logo.url %>" alt="">
+            </div>
+            <div class="top-at col-md-3">
+              <%= ngo.name %>
+            </div>
+            <div class="top-at col-md-6">
+              <%= ngo.city %>
+              <span><%= ngo.details %></span>
+
+            </div>
+            <div class="clearfix"> </div>
+          </div></a></p>
+          <% end %>
+        </div>
+
+
+      </div>
+      <div class="col-md-8 your">
+        <p id='user_content' class="connect">
+          <% @ngos.first.users.each do |user| %>
+          <%= render 'user_list', :user => user, :ngo =>  @ngos.first %>
+          <% end %>
+        </p>
       </div>
     </div>
-  </div>
-  <% end %>

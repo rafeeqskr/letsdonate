@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :requests
-  resources :ngos
-  root to: "homes#index"
+  resources :ngos do
+    get :users
+    delete "user/:id" => 'ngos#delete_user', :as => 'user'
+  end
+  root to: "donations#index"
   get 'homes/index'
 
   resources :donations
