@@ -13,8 +13,8 @@
   <% @donations.each do |donation| %>
   <div class="online-top">
     <div class="top-at">
-      <img class="img-responsive" src="<%= asset_path('la.jpg') %>" alt="">
-      <span><%= donation.name %></span>
+      <img class="img-responsive" src="<%= donation.user.image.url if donation.user.image %>" alt="">
+      <span><%= donation.user.name %></span>
     </div>
     <div class="top-on">
       <div class="col-sm-12">
@@ -29,9 +29,9 @@
       <div class="col-sm-2">
         <%= donation.category %>
       </div>
-      <div class="col-sm-4">
-        <a href="<%= donation_path(donation) %>" class="#up-in ">Show</a>&nbsp
-        <a href="<%= edit_donation_path(donation) %>" class="#up-in ">Edit</a>
+      <div class="col-sm-4 top-women" style="background: none; border: 1px solid #D5C6BE;">
+        <%= link_to 'Show', donation_path(donation) %>
+        <%= link_to 'Manage', edit_donation_path(donation) %>
       </div>
       </div>
 

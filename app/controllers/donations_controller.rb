@@ -26,7 +26,6 @@ class DonationsController < ApplicationController
   # POST /donations
   # POST /donations.json
   def create
-    sd
     @donation = Donation.new(donation_params)
 
     respond_to do |format|
