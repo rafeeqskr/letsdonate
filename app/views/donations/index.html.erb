@@ -15,11 +15,11 @@
         <div class="women-top-in">
           <div class="women-top">
             <h5><%= donation.user.name %></h5>
-            <p><%= donation.category %></p>
+            <p><%= donation.category %> | <b><%= donation.city %></b></p>
             <div class="clearfix"> </div>
           </div>
           <p class="sit"><%= donation.description %></p>
-          <center><b><%= donation.city %></b></center>
+          <center></center>
         </div>
         <div class="top-women">
           <% if donation.user == current_user %>

@@ -54,23 +54,24 @@
 <div class="container">
 <div class="">
 <% @donations.each do |donation| %>
-<div class="col-md-4">
+<div class="col-md-4" style="margin-bottom: 20px;">
   <div class="women">
     <a href="#"><img class="img-responsive" src="<%= donation.user.image.url if donation.user.image %>" style="width: 100%; height: 150px;" alt=""></a>
     <div class="women-top-in">
       <div class="women-top">
         <h5><%= donation.user.name %></h5>
-        <p><%= donation.category %></p>
+        <p><%= donation.category %> | <b><%= donation.city %></b></p>
         <div class="clearfix"> </div>
       </div>
-      <p class="sit"><%= donation.description %></p>
-      <center><b><%= donation.city %></b></center>
+      <p class="sit" style="max-height: 36px;"><%= donation.description %></p>
+      <center></center>
       </div>
       <div class="top-women">
         <% if donation.user == current_user %>
          <a href="<%= edit_donation_path(donation) %>">Manage</a>
          <% else %>
-         <a href="<%= donation_path(donation) %>">Show</a>
+         <!-- <a href="<%= donation_path(donation) %>">Show</a> -->
+         <a href="<%= new_donation_request_path(donation) %>">Request</as>
          <% end %>
       </div>
     </div>
