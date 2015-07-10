@@ -39,6 +39,10 @@ class DonationsController < ApplicationController
     end
   end
 
+  def user_donations
+    @donations = Donation.where(user_id: current_user.id) if current_user.present?
+  end
+
   # PATCH/PUT /donations/1
   # PATCH/PUT /donations/1.json
   def update

@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!-- <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-8">
     <h2>Your Ngos</h2>
@@ -45,5 +45,37 @@
           <% end %>
           <% end %>
         </p>
+      </div>
+    </div> -->
+
+
+
+
+
+    <div class="container">
+      <div class="col-md-8">
+        <h2>Ngos</h2>
+      </div>
+      <div class="col-md-4 top-women" style="background: none;">
+        <%= link_to 'Add an Ngo', ngos_path %>
+      </div>
+    </div>
+    <div class="container">
+      <div class="">
+        <% @ngos.each do |ngo| %>
+        <div class="col-md-4">
+          <div class="women">
+            <div class="women-top-in">
+              <div class="women-top">
+                <h5><%= ngo.name %></h5>
+                <!-- <p><%= ngo.city %></p> -->
+                <div class="clearfix"> </div>
+              </div>
+              <p class="sit"><%= ngo.details %></p>
+              <center><b><%= ngo.city %></b></center>
+            </div>
+          </div>
+        </div>
+        <% end %>
       </div>
     </div>

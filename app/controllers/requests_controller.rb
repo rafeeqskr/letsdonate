@@ -31,7 +31,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to root_path, notice: 'Your request was successfully submitted.' }
+        format.html { redirect_to donations_path, notice: 'Your request was successfully submitted.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
