@@ -18,7 +18,7 @@
             <div class="imgLiquidFill imgLiquid" style="height: 500px;">
           <img   data-src="<%= asset_url "slider2.jpg" %>" style="  height: 500px;"  alt="900x500" src="<%= asset_url "slider2.jpg" %>"  data-holder-rendered="true">
           <div class="carousel-caption" style="   float: left;  position: absolute;  top: 10%;  right: 0%;">
-            <h1 style="    left: 0px;    font-size: 48px;">Recycle and Upsell</h1>
+            <h1 style="    left: 0px;    font-size: 48px;">Recycle and Upcycle</h1>
             <h3 style="    margin-top: 20px;">Let them build, sell and survive.</h3>
           </div>
       </div>
@@ -41,4 +41,40 @@
         <span class="sr-only">Next</span>
       </a>
     </div>
+</div>
+</br></br>
+<div class="container">
+  <div class="col-md-8">
+    <h2>Donations</h2>
+  </div>
+  <div class="col-md-4 top-women" style="background: none;">
+    <%= link_to 'Add New Donation', new_donation_path %>
+  </div>
+</div>
+<div class="container">
+<div class="">
+<% @donations.each do |donation| %>
+<div class="col-md-4">
+  <div class="women">
+    <a href="#"><img class="img-responsive" src="<%= donation.user.image.url if donation.user.image %>" style="width: 100%; height: 150px;" alt=""></a>
+    <div class="women-top-in">
+      <div class="women-top">
+        <h5><%= donation.user.name %></h5>
+        <p><%= donation.category %></p>
+        <div class="clearfix"> </div>
+      </div>
+      <p class="sit"><%= donation.description %></p>
+      <center><b><%= donation.city %></b></center>
+      </div>
+      <div class="top-women">
+        <% if donation.user == current_user %>
+         <a href="<%= edit_donation_path(donation) %>">Manage</a>
+         <% else %>
+         <a href="<%= donation_path(donation) %>">Show</a>
+         <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
 </div>
