@@ -65,12 +65,12 @@
             <div class="col-sm-6" style="color: none;">
               <% @donation.requests.each do |request| %>
                 <div class='row'>
-                  <div class='col-xs-3'>
-                    <%= request.user.email %>
+                  <div class='col-xs-3' style="top: 13px;">
+                    <%= request.user.name %>
                   </div>
 
                   <div class='col-xs-3'>
-                    <%= link_to 'Accept',root_path, class: 'btn ld_button' %>
+                    <%= link_to 'Accept',root_path, class: 'btn btn-xs ld_button' %>
                   </div>
 
                 </div>
