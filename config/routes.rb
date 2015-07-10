@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   root to: "homes#index"
   get 'homes/index'
+  get 'howitworks' => 'homes#howitworks'
 
   resources :donations
   devise_for :users
