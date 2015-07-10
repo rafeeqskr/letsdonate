@@ -2,6 +2,8 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_action :set_request_donation, only: [:show, :edit, :update, :destroy, :new]
 
+  before_action :authenticate_user!, :only => [:new]
+
   # GET /requests
   # GET /requests.json
   def index
