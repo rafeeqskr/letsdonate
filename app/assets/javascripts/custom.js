@@ -38,11 +38,12 @@ $(document).ready(function(){
 
  });
 
+// expiry date for food category
  $('select').on('change', function () {
    if ($(this).val() === 'Food') {
-     $('#ttt').show();
+     $('#food_expiry').show();
    } else {
-     $('#ttt').hide();
+     $('#food_expiry').hide();
    }
  });
 
