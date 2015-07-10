@@ -1,0 +1,89 @@
+<div class="container">
+  <div class="col-md-8">
+    <h2>Your Donations</h2>
+  </div>
+  <div class="col-md-4 top-women" style="background: none;">
+    <%= link_to 'Add New Donation', new_donation_path %>
+  </div>
+</div>
+<div class="container">
+  <div class="">
+    <% @donations.each do |donation| %>
+    <div class="col-md-4">
+      <div class="women">
+        <a href="#"><img class="img-responsive" src="<%= donation.user.image.url if donation.user.image %>" style="width: 100%; height: 150px;" alt=""></a>
+        <div class="women-top-in">
+          <div class="women-top">
+            <h5><%= donation.user.name %></h5>
+            <p><%= donation.category %> | <b><%= donation.city %></b></p>
+            <div class="clearfix"> </div>
+          </div>
+          <p class="sit"><%= donation.description %></p>
+          <center></center>
+        </div>
+        <div class="top-women">
+          <% if donation.user == current_user %>
+          <a href="<%= donation_path(donation) %>">Manage</a>
+          <% else %>
+          <a href="<%= donation_path(donation) %>">Show</a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+
+
+<!--
+<div class="row">
+<div class="col-md-8">
+  <h2>Donations</h2>
+</div>
+<div class="col-md-4 top-women" style="background: none;">
+  <%= link_to 'Add New Donation', new_donation_path %>
+</div>
+</div>
+
+
+<div class="online">
+  <% @donations.each do |donation| %>
+  <div class="online-top">
+    <div class="top-at">
+      <img class="img-responsive" src="<%= donation.user.image.url if donation.user.image %>" alt="">
+      <span><%= donation.user.name %></span>
+    </div>
+    <div class="top-on">
+      <div class="col-sm-12">
+        <p><%= donation.description %></p>
+      </br>
+      <div class="col-sm-2">
+        <%= donation.city %>
+      </div>
+      <div class="col-sm-4">
+        <% if donation.category == "Food"%>
+        Expired on :</br> <%= donation.expiry.strftime("%b %d %Y %d %p") %>
+        <% end %>
+      </div>
+      <div class="col-sm-2">
+        <%= donation.category %>
+      </div>
+      <div class="col-sm-4 top-women" style="background: none; border: 1px solid #D5C6BE;">
+        <%= link_to 'Show', donation_path(donation) %>
+        <% if current_user.present? && donation.user == current_user %>
+          <%= link_to 'Manage', edit_donation_path(donation) %>
+        <% end %>
+        <% if current_user.present? && donation.user != current_user %>
+          <%= link_to 'Request', new_donation_request_path(donation) %>
+        <% end %>
+
+      </div>
+      </div>
+
+    </div>
+    <div class="clearfix"> </div>
+  </div>
+  <% end %>
+
+</div> -->
