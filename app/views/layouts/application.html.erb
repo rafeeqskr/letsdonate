@@ -23,11 +23,13 @@
 
 				<ul>
 					<li ><a href="/howitworks">How it works</a></li>
-					<li ><a href="<%= donations_path %>">Donations</a></li>
+
 					<li><a href="<%= ngos_path %>" >NGOs</a></li>
 					<% if current_user.present? %>
+					<li ><a href="<%= user_donations_donations_path %>">My Donations</a></li>
 					<li><a href=<%= destroy_user_session_path %> data-method='delete'  >Logout</a></li>
 					<% else %>
+					<li ><a href="<%= donations_path %>">Donations</a></li>
 					<li><a href=<%= new_user_registration_path %>>Signup</a></li>
 					<li><a href=<%= user_session_path %>  >Login</a></li>
 					<% end %>
@@ -40,10 +42,12 @@
 	</div>
 </div>
 <% if params[:controller] == "homes" %>
+<div style="min-height: 800px;">
 <%= yield %>
+</div>
 <% end %>
 
-<div class="container">
+<div class="container" style="min-height: 800px;">
 
 	<% if params[:controller] != "homes" %>
 	<div class="clearfix">
@@ -52,7 +56,7 @@
 	<% end %>
 </div>
 
-	<div class="footer">
+	<div class="footer" style="margin-top: 50px;">
 		<div class="container">
 		<p >© 2015 Let's Donate All Rights Reserved | Designed by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 	</div>
