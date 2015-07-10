@@ -21,9 +21,9 @@
 					<span class="menu"><img src="images/menu.png" alt=""> </span>
 
 					<ul>
-						<li ><a href="index.html">Home</a></li>
+						<li ><a href="<%= donations_path%>">Home</a></li>
 						<li><a href="<%= ngos_path %>" >NGOs</a></li>
-						<li><a href="404.html" >Services</a></li>
+						<li><a href="#" >Services</a></li>
 						<li class="active"><a href="portfolio.html" >Portfolio</a></li>
 						<li><a href="blog.html" >Blog</a></li>
 						<li><a href="#contact"  >Contact</a></li>
@@ -34,7 +34,7 @@
 				</div>
 
 	<div class="clearfix">
-
+     <%= yield %>
 	 </div>
 	</div>
 	<div class="footer">

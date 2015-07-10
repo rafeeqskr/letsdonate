@@ -3,35 +3,22 @@
   <div class="col-md-8">
   	<h2>Your Ngos</h2>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-4 top-women" style="background: none;">
     <%= link_to 'Add New Ngo', new_ngo_path %>
   </div>
 </div>
+<% @ngos.each do |ngo| %>
+<div class="col-md-4 top-book">
+  <div class="book">
+    <div class="book-top">
+      <a href="#"><img class="img-responsive" src="<%= ngo.logo.thumb("48x48").url %>" alt=""></a>
 
-<br>
-<div class="row">
-  <div class="col-md-4">
-
-    <div class="">
-        <% @ngos.each do |ngo| %>
-      <a href="#">
-        <div class="row">
-          <div class="top-at col-md-3">
-            <img class="img-responsive" src="<%= ngo.logo.url %>" alt="">
-          </div>
-          <div class="top-at col-md-3">
-            <%= ngo.name %>
-          </div>
-          <div class="top-at col-md-6">
-              <%= ngo.city %>
-              <span><%= ngo.details %></span>
-
-          </div>
-          <div class="clearfix"> </div>
-      </div></a>
-  <% end %>
     </div>
-
-
+    <div class="title">
+      <h4><a href="#"><%= ngo.name %></a></h4>
+      <p><%= ngo.details %></p>
+        <span><%= ngo.city %></span>
+      </div>
+    </div>
   </div>
-</div>
+  <% end %>

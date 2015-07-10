@@ -1,5 +1,12 @@
 
-<h1>Listing Donations</h1>
+<div class="row">
+<div class="col-md-8">
+  <h2>Donations</h2>
+</div>
+<div class="col-md-4 top-women" style="background: none;">
+  <%= link_to 'Add New Donation', new_donation_path %>
+</div>
+</div>
 
 
 <div class="online">
@@ -23,8 +30,8 @@
         <%= donation.category %>
       </div>
       <div class="col-sm-4">
-        <a href="<%= donation_path(donation) %>" class="buy ">Show</a>&nbsp
-        <a href="<%= edit_donation_path(donation) %>" class="buy pull-right">Edit</a>
+        <a href="<%= donation_path(donation) %>" class="#up-in ">Show</a>&nbsp
+        <a href="<%= edit_donation_path(donation) %>" class="#up-in ">Edit</a>
       </div>
       </div>
 
@@ -34,4 +41,3 @@
   <% end %>
 
 </div>
-<%= link_to 'New Donation', new_donation_path %>
