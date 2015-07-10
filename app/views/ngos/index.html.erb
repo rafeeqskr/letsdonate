@@ -10,8 +10,6 @@
       </div> -->
 
 
-<!-- <p id="notice"><%= notice %></p>
->>>>>>> 3642e84f4bb3180ebafd0e1013eb90df79a152d2
 <div class="row">
   <div class="col-md-8">
     <h2> Ngos</h2>
@@ -37,38 +35,6 @@
         <p class="sit" style="max-height: 36px;"><%= ngo.details %></p>
         <center></center>
       </div>
-      </div>
-    </div> -->
-
-
-
-
-
-    <div class="container">
-      <div class="col-md-8">
-        <h2>Ngos</h2>
-      </div>
-      <div class="col-md-4 top-women" style="background: none;">
-        <%= link_to 'Add an Ngo', ngos_path %>
-      </div>
-    </div>
-    <div class="container">
-      <div class="">
-        <% @ngos.each do |ngo| %>
-        <div class="col-md-4">
-          <div class="women">
-            <div class="women-top-in">
-              <div class="women-top">
-                <h5><%= ngo.name %></h5>
-                <!-- <p><%= ngo.city %></p> -->
-                <div class="clearfix"> </div>
-              </div>
-              <p class="sit"><%= ngo.details %></p>
-              <center><b><%= ngo.city %></b></center>
-            </div>
-          </div>
-        </div>
-        <% end %>
       </div>
     </div>
     <% end %>
