@@ -10,7 +10,7 @@
       </div> -->
 
 
-<div class="row">
+<div class="container">
   <div class="col-md-8">
     <h2> Ngos</h2>
   </div>
@@ -20,27 +20,26 @@
   </div>
   <% end %>
 </div>
+</br>
+
 <div class="container">
   <div class="">
     <% @ngos.each do |ngo| %>
-  <div class="col-md-4" style="margin-bottom: 20px;">
-    <div class="women">
-      <a href="#"><img class="img-responsive" src="<%= ngo.logo.url if ngo.logo %>" style="width: 100%; height: 150px;" alt=""></a>
-      <div class="women-top-in">
-        <div class="women-top">
-          <h5><%= ngo.name %></h5>
-          <% if current_user == ngo.owner %>
-          <p>  || <%= link_to raw('<i class="glyphicon glyphicon-cog"></i>'), edit_ngo_path(ngo) %> </p>
-          <% end %>
-          <p><b><%= ngo.city %></b></p>
-
-          <div class="clearfix"> </div>
+    <div class="coffee col-md-4">
+      <div class="coffee-top">
+        <a href="#"><img class="img-responsive" src="<%= ngo.logo.url if ngo.logo %>" style="max-height: 200px; width: 100%;" alt="">
+          <i style="background: url(<%= ngo.owner.image.url %>)"></i></a>
         </div>
-        <p class="sit" style="max-height: 36px;"><%= ngo.details %></p>
-        <center></center>
+        <div class="women-top-in">
+          <div class="women-top">
+            <h5><%= ngo.name %></h5>
+            <p><b><%= ngo.city %></b></p>
+            <div class="clearfix"> </div>
+          </div>
+          <p class="sit"><%= ngo.details %></p>
+          <center></center>
+        </div>
       </div>
-      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-</div>
