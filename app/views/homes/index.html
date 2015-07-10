@@ -52,29 +52,30 @@
   </div>
 </div>
 <div class="container">
-<div class="">
-<% @donations.each do |donation| %>
-<div class="col-md-4" style="margin-bottom: 20px;">
-  <div class="women">
-    <a href="#"><img class="img-responsive" src="<%= donation.image.url if donation.image %>" style="width: 100%; height: 150px;" alt=""></a>
-    <div class="women-top-in">
-      <div class="women-top">
-        <h5><%= donation.name %></h5>
-        <p><%= donation.category %> | <b><%= donation.city %></b></p>
-        <div class="clearfix"> </div>
+  <div class="">
+    <% @donations.each do |donation| %>
+    <div class="coffee col-md-4">
+      <div class="coffee-top">
+        <a href="#"><img class="img-responsive" src="<%= donation.image.url if donation.image %>" style="max-height: 200px; width: 100%;" alt="">
+          <i style="background: url(<%= donation.user.image.url %>)"></i></a>
+        </div>
+        <div class="women-top-in">
+          <div class="women-top">
+            <h5><%= donation.name %></h5>
+            <p><%= donation.category %> | <b><%= donation.city %></b></p>
+            <div class="clearfix"> </div>
+          </div>
+          <p class="sit"><%= donation.description %></p>
+          <center></center>
+        </div>
+        <div class="top-women">
+          <% if donation.user == current_user %>
+          <a href="<%= edit_donation_path(donation) %>">Manage</a>
+          <% else %>
+          <a href="<%= donation_path(donation) %>">Show</a>
+          <% end %>
+        </div>
       </div>
-      <p class="sit" style="max-height: 36px; overflow: hidden;"><%= donation.description %></p>
-      </div>
-      <div class="top-women">
-        <% if donation.user == current_user %>
-         <a href="<%= edit_donation_path(donation) %>">Manage</a>
-         <% else %>
-         <!-- <a href="<%= donation_path(donation) %>">Show</a> -->
-         <a href="<%= new_donation_request_path(donation) %>">Request</as>
-         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
-</div>
-</div>
