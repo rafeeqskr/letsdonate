@@ -24,7 +24,9 @@
         <%= donation.city %>
       </div>
       <div class="col-sm-4">
+        <% if donation.category == "Food"%>
         Expired on :</br> <%= donation.expiry.strftime("%b %d %Y %d %p") %>
+        <% end %>
       </div>
       <div class="col-sm-2">
         <%= donation.category %>

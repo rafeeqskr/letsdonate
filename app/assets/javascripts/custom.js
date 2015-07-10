@@ -38,4 +38,12 @@ $(document).ready(function(){
 
  });
 
+ $('select').on('change', function () {
+   if ($(this).val() === 'Food') {
+     $('#ttt').show();
+   } else {
+     $('#ttt').hide();
+   }
+ });
+
 });
