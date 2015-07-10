@@ -1,13 +1,20 @@
 
-<h1>Listing Donations</h1>
+<div class="row">
+<div class="col-md-8">
+  <h2>Donations</h2>
+</div>
+<div class="col-md-4 top-women" style="background: none;">
+  <%= link_to 'Add New Donation', new_donation_path %>
+</div>
+</div>
 
 
 <div class="online">
   <% @donations.each do |donation| %>
   <div class="online-top">
     <div class="top-at">
-      <img class="img-responsive" src="<%= asset_path('la.jpg') %>" alt="">
-      <span><%= donation.name %></span>
+      <img class="img-responsive" src="<%= donation.user.image.url if donation.user.image %>" alt="">
+      <span><%= donation.user.name %></span>
     </div>
     <div class="top-on">
       <div class="col-sm-12">
@@ -22,11 +29,15 @@
       <div class="col-sm-2">
         <%= donation.category %>
       </div>
-      <div class="col-sm-4">
-        <a href="<%= donation_path(donation) %>" class="buy ">Show</a>&nbsp
-        <% if current_user.present? donation.user == current_user %>
-          <a href="<%= edit_donation_path(donation) %>" class="buy pull-right">Edit</a>
+      <div class="col-sm-4 top-women" style="background: none; border: 1px solid #D5C6BE;">
+        <%= link_to 'Show', donation_path(donation) %>
+        <% if current_user.present? && donation.user == current_user %>
+          <%= link_to 'Manage', edit_donation_path(donation) %>
         <% end %>
+        <% if current_user.present? && donation.user != current_user %>
+          <%= link_to 'Request', new_donation_request_path(donation) %>
+        <% end %>
+
       </div>
       </div>
 

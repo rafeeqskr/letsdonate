@@ -1,11 +1,13 @@
 <p id="notice"><%= notice %></p>
 <div class="row">
   <div class="col-md-8">
-  	<h2>Your Ngos</h2>
+    <h2>Your Ngos</h2>
   </div>
-  <div class="col-md-4">
+  <% if current_user %>
+  <div class="col-md-4 top-women" style="background: none;" >
     <%= link_to 'Add New Ngo', new_ngo_path %>
   </div>
+  <% end %>
 </div>
 
 <br>
@@ -13,33 +15,35 @@
   <div class="col-md-4">
 
     <div class="your">
-        <% @ngos.each do |ngo| %>
-        <p class="connect">
-      <a href="#" data-id="<%= ngo.id %>" class="get_users">
-        <div class="row">
-          <div class="top-at col-md-3">
-            <img class="img-responsive" src="<%= ngo.logo.url %>" alt="">
-          </div>
-          <div class="top-at col-md-3">
-            <%= ngo.name %>
-          </div>
-          <div class="top-at col-md-6">
+      <% @ngos.each do |ngo| %>
+      <p class="connect">
+        <a href="#" data-id="<%= ngo.id %>" class="get_users">
+          <div class="row">
+            <div class="top-at col-md-3">
+              <img class="img-responsive" src="<%= ngo.logo.url if ngo.logo %>" alt="">
+            </div>
+            <div class="top-at col-md-3">
+              <%= ngo.name %>
+            </div>
+            <div class="top-at col-md-6">
               <%= ngo.city %>
               <span><%= ngo.details %></span>
 
-          </div>
-          <div class="clearfix"> </div>
-      </div></a></p>
-  <% end %>
+            </div>
+            <div class="clearfix"> </div>
+          </div></a></p>
+          <% end %>
+        </div>
+
+
+      </div>
+      <div class="col-md-8 your">
+        <p id='user_content' class="connect">
+          <% if @ngos.present? %>
+          <% @ngos.first.users.each do |user| %>
+          <%= render 'user_list', :user => user, :ngo =>  @ngos.first %>
+          <% end %>
+          <% end %>
+        </p>
+      </div>
     </div>
-
-
-  </div>
-  <div class="col-md-8 your">
-    <p id='user_content' class="connect">
-      <% @ngos.first.users.each do |user| %>
-        <%= render 'user_list', :user => user, :ngo =>  @ngos.first %>
-      <% end %>
-    </p>
-  </div>
-</div>
