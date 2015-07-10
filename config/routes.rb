@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   get 'howitworks' => 'homes#howitworks'
 
   resources :donations do
+    collection do
+      get 'user_donations'
+    end
     resources :requests
   end
 

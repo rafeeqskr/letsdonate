@@ -23,11 +23,13 @@
 
 				<ul>
 					<li ><a href="/howitworks">How it works</a></li>
-					<li ><a href="<%= donations_path %>">Donations</a></li>
+
 					<li><a href="<%= ngos_path %>" >NGOs</a></li>
 					<% if current_user.present? %>
+					<li ><a href="<%= user_donations_donations_path %>">My Donations</a></li>
 					<li><a href=<%= destroy_user_session_path %> data-method='delete'  >Logout</a></li>
 					<% else %>
+					<li ><a href="<%= donations_path %>">Donations</a></li>
 					<li><a href=<%= new_user_registration_path %>>Signup</a></li>
 					<li><a href=<%= user_session_path %>  >Login</a></li>
 					<% end %>
