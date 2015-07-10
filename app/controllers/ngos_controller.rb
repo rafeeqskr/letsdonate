@@ -4,7 +4,7 @@ class NgosController < ApplicationController
   # GET /ngos
   # GET /ngos.json
   def index
-    @ngos = current_user.owner_ngos #Ngo.all
+    @ngos = Ngo.all
   end
 
   # GET /ngos/1
