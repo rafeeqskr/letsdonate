@@ -29,7 +29,7 @@
   <div class="form-group">
     <label class="ld_label col-sm-2" for="email">Category:</label>
     <div class="col-sm-6" style="padding-top: 11px;">
-      <%= f.select(:category, options_for_select([["Clothes", "Clothes"], ["Food", "Food"], ["Books", "Books"], ["Furniture", "Furniture"]]), {:include_blank => 'Select any one category'}, { :class => 'form-control', :required => true }) %>
+      <%= f.select(:category, options_for_select([["Clothes", "Clothes"], ["Food", "Food"], ["Books", "Books"], ["Furniture", "Furniture"],["Misc","Misc"]]), {:include_blank => 'Select any one category'}, { :class => 'form-control', :required => true }) %>
     </div>
   </div>
 
