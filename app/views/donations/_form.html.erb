@@ -15,7 +15,7 @@
   <div class="form-group">
     <label class="ld_label col-sm-2" for="email">Name:</label>
     <div class="col-sm-6" style="color: none;">
-      <%= f.text_field :name, class: "form-control", placeholder: "Enter Name", style: "color: #6E6363;" %>
+      <%= f.text_field :name, class: "form-control", placeholder: "Enter Name", style: "color: #6E6363;", :required => true  %>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
   <div class="form-group">
     <label class="ld_label col-sm-2" for="email">Category:</label>
     <div class="col-sm-6" style="padding-top: 11px;">
-      <%= f.select(:category, options_for_select([["Clothes", "Clothes"], ["Food", "Food"], ["Books", "Books"], ["Furniture", "Furniture"]]), {}, { :class => 'form-control' }) %>
+      <%= f.select(:category, options_for_select([["Clothes", "Clothes"], ["Food", "Food"], ["Books", "Books"], ["Furniture", "Furniture"]]), {:include_blank => 'Select any one category'}, { :class => 'form-control', :required => true }) %>
     </div>
   </div>
 
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <div class="form-group">
+  <div class="form-group" id="food_expiry">
     <label class="ld_label col-sm-2" for="email">Expiry:</label>
     <div class="col-sm-6">
       <%= text_field_tag "donation[expiry_clone_field]", nil, {class: "form-control datepicker",style: "color: #6E6363;"} %>
@@ -50,7 +50,7 @@
   <div class="form-group">
     <label class="ld_label col-sm-2" for="email">City:</label>
     <div class="col-sm-6">
-      <%= f.text_field :city, {class: "form-control", style: "color: #6E6363;"}%>
+      <%= f.text_field :city, {class: "form-control", style: "color: #6E6363;", :required => true }%>
     </div>
   </div>
   <%= f.hidden_field :user_id, {class: "form-control", value: current_user.present? ? current_user.id : nil} %>

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     get :users
     delete "user/:id" => 'ngos#delete_user', :as => 'user'
   end
-  root to: "donations#index"
+  root to: "homes#index"
   get 'homes/index'
 
   resources :donations do
