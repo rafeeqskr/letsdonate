@@ -1,5 +1,6 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  before_action :set_request_donation, only: [:show, :edit, :update, :destroy, :new]
 
   # GET /requests
   # GET /requests.json
@@ -15,6 +16,8 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
+    # instance variable below has the ngos user is associated with that he/she has not used for sending request for this donation
+    @user_ngos_valid_for_request = current_user.remaining_user_ngos_valid_for_request(@donation.id) if current_user.present?
   end
 
   # GET /requests/1/edit
@@ -28,7 +31,7 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to @request, notice: 'Request was successfully created.' }
+        format.html { redirect_to root_path, notice: 'Your request was successfully submitted.' }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -65,6 +68,10 @@ class RequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_request
       @request = Request.find(params[:id])
+    end
+
+    def set_request_donation
+      @donation = Donation.find(params[:donation_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

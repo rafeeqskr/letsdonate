@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
-  resources :requests
   resources :ngos do
     get :users
     delete "user/:id" => 'ngos#delete_user', :as => 'user'
   end
   root to: "homes#index"
   get 'homes/index'
+  get 'howitworks' => 'homes#howitworks'
 
-  resources :donations
+  resources :donations do
+    resources :requests
+  end
+
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,4 +1,5 @@
-<%= form_for(@request) do |f| %>
+<div class='ld_form_lg'>
+<%= form_for(@request, url: donation_requests_path, html: {class: 'form-horizontal'}) do |f| %>
   <% if @request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
@@ -11,23 +12,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :ngo_id %><br>
-    <%= f.number_field :ngo_id %>
+  <div class="form-group">
+    <label class="ld_label col-sm-2" for="ngo_id" style='top :-12px;'>Select NGO:</label>
+    <div class="col-sm-6" style="color: none;">
+      <%= f.collection_select :ngo_id, @user_ngos_valid_for_request, :id, :name,{}, {class: "form-control"} %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+
+
+  <%= f.hidden_field :user_id, {class: "form-control", value: current_user.present? ? current_user.id : nil} %>
+  <%= f.hidden_field :donation_id, {class: "form-control", value: @donation.present? ? @donation.id : nil} %>
+  <%= f.hidden_field :status, {class: "form-control", value: "Pending"} %>
+
+  <div class="form-group">
+    <div class="col-sm-2">
+    </div>
+    <div class="col-sm-3">
+      <%= f.submit class: 'btn' %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :donation_id %><br>
-    <%= f.number_field :donation_id %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
+</div>
