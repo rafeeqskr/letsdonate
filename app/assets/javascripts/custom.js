@@ -54,3 +54,10 @@ $(".imgLiquidFill").imgLiquid({fill:true});
  });
 
 });
+
+
+window.setTimeout(function() {
+  $(".alert").fadeTo(1500, 0).slideUp(100, function(){
+    $(this).remove();
+  });
+}, 5000);

@@ -2,6 +2,8 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_action :set_request_donation, only: [:show, :edit, :update, :destroy, :new]
 
+  before_action :authenticate_user!, :only => [:new]
+
   # GET /requests
   # GET /requests.json
   def index
@@ -60,6 +62,14 @@ class RequestsController < ApplicationController
     @request.destroy
     respond_to do |format|
       format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  def accept_request
+    @request.update(status: "Accepted")
+    respond_to do |format|
+      format.html { redirect_to user_donations_donations_path, notice: 'Request was successfully accepted.' }
       format.json { head :no_content }
     end
   end
