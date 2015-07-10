@@ -15,7 +15,7 @@
   <div class="form-group">
     <label class="ld_label col-sm-2" for="ngo_id" style='top :-12px;'>Select NGO:</label>
     <div class="col-sm-6" style="color: none;">
-      <%= f.collection_select :ngo_id, @user_ngos, :id, :name,{}, {class: "form-control"} %>
+      <%= f.collection_select :ngo_id, @user_ngos_valid_for_request, :id, :name,{}, {class: "form-control"} %>
     </div>
   </div>
 

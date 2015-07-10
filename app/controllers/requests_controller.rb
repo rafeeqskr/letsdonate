@@ -16,7 +16,8 @@ class RequestsController < ApplicationController
   # GET /requests/new
   def new
     @request = Request.new
-    @user_ngos = (current_user.owner_ngos + current_user.ngos) if current_user.present?
+    # instance variable below has the ngos user is associated with that he/she has not used for sending request for this donation
+    @user_ngos_valid_for_request = current_user.remaining_user_ngos_valid_for_request(@donation.id) if current_user.present?
   end
 
   # GET /requests/1/edit
