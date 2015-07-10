@@ -20,4 +20,19 @@ class User < ActiveRecord::Base
       self.save
     end
   end
+
+  def remaining_user_ngos_valid_for_request(donation_id)
+    used_ngos = []
+    self.requests_for_donation(donation_id).each{|req| used_ngos << req.ngo}
+    self.associated_ngos - used_ngos
+  end
+
+  def requests_for_donation(donation_id)
+    self.requests.where(donation_id: donation_id).includes(:ngo)
+  end
+
+  def associated_ngos
+    self.owner_ngos + self.ngos
+  end
+
 end

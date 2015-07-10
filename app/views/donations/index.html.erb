@@ -33,7 +33,13 @@
       </div>
       <div class="col-sm-4 top-women" style="background: none; border: 1px solid #D5C6BE;">
         <%= link_to 'Show', donation_path(donation) %>
-        <%= link_to 'Manage', edit_donation_path(donation) %>
+        <% if current_user.present? && donation.user == current_user %>
+          <%= link_to 'Manage', edit_donation_path(donation) %>
+        <% end %>
+        <% if current_user.present? && donation.user != current_user %>
+          <%= link_to 'Request', new_donation_request_path(donation) %>
+        <% end %>
+
       </div>
       </div>
 
