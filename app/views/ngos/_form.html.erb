@@ -73,7 +73,7 @@
     </div>
   </div>
     <% end %>
-    <% if @ngo.id %>
+    <% if @ngo.id && @other_users.present? %>
     <%= form_tag ngo_users_path(@ngo) do %>
     <div class="form-group ">
       <label class="ld_label" for="logo">Selct user for add</label>
