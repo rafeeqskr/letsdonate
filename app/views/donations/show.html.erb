@@ -1,9 +1,9 @@
-
+<!--
 <div class="col-md-12">
 <div class="col-md-2"></div>
 <div class="col-md-8">
 <div class="title-blue">
-  <h4><a href="#"><%= @donation.name %></a></h4>
+  <h4><%= @donation.name %></h4>
   <p><%= @donation.description %></p>
   <strong>City:</strong>
   <%= @donation.city %></br>
@@ -16,4 +16,78 @@
 
 <div class="col-md-12 top-women" style="background: none;" >
   <center><%= link_to 'Back', root_path %></center>
+</div> -->
+
+
+
+<div class="wrapper">
+<div class="container">
+  <div class="row">
+
+    <div class='col-lg-1'></div>
+    <div class='col-lg-10'>
+
+      <div class="account-top">
+        <h3>Donation Details</h3>
+        <div class="your-at col-md form-horizontal">
+
+          <div class="form-group">
+            <label class="col-sm-2" for="email">Name:</label>
+            <div class="col-sm-6" style="color: none;">
+              <h4><%= @donation.name %></h4>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2" for="email">Category:</label>
+            <div class="col-sm-6" style="color: none;">
+              <h4><%= @donation.category %></h4>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2" for="email">Description:</label>
+            <div class="col-sm-6" style="color: none;">
+              <h4><%= @donation.description %></h4>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-sm-2" for="email">City:</label>
+            <div class="col-sm-6" style="color: none;">
+              <h4><%= @donation.city %></h4>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="col-sm-2" for="email">Requests:</label>
+            <div class="col-sm-6" style="color: none;">
+              <% @donation.requests.each do |request| %>
+                <div class='row'>
+                  <div class='col-xs-3'>
+                    <%= request.user.email %>
+                  </div>
+
+                  <div class='col-xs-3'>
+                    <%= link_to 'Accept',root_path, class: 'btn ld_button' %>
+                  </div>
+
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+
+
+
+        </div>
+
+      </div>
+    </div>
+    <div class='col-lg-1'></div>
+
+  </div>
+</div>
+
 </div>
