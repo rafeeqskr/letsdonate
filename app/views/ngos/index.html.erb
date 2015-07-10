@@ -29,7 +29,11 @@
       <div class="women-top-in">
         <div class="women-top">
           <h5><%= ngo.name %></h5>
+          <% if current_user == ngo.owner %>
+          <p>  || <%= link_to raw('<i class="glyphicon glyphicon-cog"></i>'), edit_ngo_path(ngo) %> </p>
+          <% end %>
           <p><b><%= ngo.city %></b></p>
+
           <div class="clearfix"> </div>
         </div>
         <p class="sit" style="max-height: 36px;"><%= ngo.details %></p>

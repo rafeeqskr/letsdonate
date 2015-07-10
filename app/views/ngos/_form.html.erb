@@ -73,6 +73,7 @@
     </div>
   </div>
     <% end %>
+    <% if @ngo.id %>
     <%= form_tag ngo_users_path(@ngo) do %>
     <div class="form-group ">
       <label class="ld_label" for="logo">Selct user for add</label>
@@ -85,6 +86,7 @@
         </select>
       </div>
     </div>
+    <% end %>
     <% end %>
 
   </div>
