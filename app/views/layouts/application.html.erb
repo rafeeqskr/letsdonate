@@ -40,10 +40,12 @@
 	</div>
 </div>
 <% if params[:controller] == "homes" %>
+<div style="min-height: 800px;">
 <%= yield %>
+</div>
 <% end %>
 
-<div class="container">
+<div class="container" style="min-height: 800px;">
 
 	<% if params[:controller] != "homes" %>
 	<div class="clearfix">
@@ -52,7 +54,7 @@
 	<% end %>
 </div>
 
-	<div class="footer">
+	<div class="footer" style="margin-top: 50px;">
 		<div class="container">
 		<p >© 2015 Let's Donate All Rights Reserved | Designed by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
 	</div>
