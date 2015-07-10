@@ -20,4 +20,9 @@ class User < ActiveRecord::Base
       self.save
     end
   end
+
+  def has_used_request_quota_for_request(donation_id)
+    current_user.requests.where(donation_id: donation_id)
+  end
+
 end
