@@ -24,7 +24,9 @@
       </div>
       <div class="col-sm-4">
         <a href="<%= donation_path(donation) %>" class="buy ">Show</a>&nbsp
-        <a href="<%= edit_donation_path(donation) %>" class="buy pull-right">Edit</a>
+        <% if current_user.present? donation.user == current_user %>
+          <a href="<%= edit_donation_path(donation) %>" class="buy pull-right">Edit</a>
+        <% end %>
       </div>
       </div>
 
@@ -34,4 +36,3 @@
   <% end %>
 
 </div>
-<%= link_to 'New Donation', new_donation_path %>
