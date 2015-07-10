@@ -29,8 +29,8 @@ h1,h2,h3,h4,h5,h6,label,p{
 }
 .logo{
 
-	padding: 2em 0 0;
-  margin: auto 5.3em;
+	padding: 2em ;
+
 }
 .logo a {
     text-decoration: none !important;
@@ -45,8 +45,10 @@ h1,h2,h3,h4,h5,h6,label,p{
     width: 260px;
 }
 .top-nav {
-   background: #DC483A;
-  margin: 0 1em 2em;
+  display: inline-block;
+  float: right;
+  background: initial;
+
 text-align:center;
 }
 .top-nav ul li {
@@ -55,7 +57,7 @@ text-align:center;
 }
 .top-nav ul li  a {
 	display: inline-block;
-	color: #fff;
+	color: #5C5C5C;
 	text-decoration: none;
 	font-size: 1.3em;
 	padding: 1.5em;
@@ -67,7 +69,7 @@ text-align:center;
 }
 .top-nav ul li  a:hover{
 	color:#2d2d2d;
-	background:#fff;
+	background:#initial;
 }
 .top-nav span.menu{
 	display: none;
@@ -76,7 +78,7 @@ text-align:center;
 	padding:0;
 }
 .header {
-  width: 95%;
+
   margin: 3em auto;
 }
 .in-menu {
@@ -143,7 +145,7 @@ ul.profile li.active a i.glyphicon.glyphicon-user{
 }
 
 .lamp{
-	background:url(../images/pi.jpg)no-repeat;
+	background:asset-url("pi.jpg")no-repeat;
 	width:100%;
 	height: 346px;
   display: block;
@@ -687,7 +689,7 @@ width: 16px;
   outline: none;
   top: 14px;
   right: 9px;
-  background: url(../images/search.png) no-repeat;
+  background: asset-url("search.png") no-repeat;
 }
 /*----*/
 .women-top-in{
@@ -739,7 +741,7 @@ p.sit{
 .coffee-top i{
 	position:absolute;
 	top:68%;
-	background:url(../images/la4.jpg)no-repeat center;
+	background:asset-url("la4.jpg")no-repeat center;
 	width:80px;
 	height:80px;
 	display:block;
@@ -887,7 +889,7 @@ p.sit{
 }
 .checkbox input + i:after {
 	content: '';
-	background: url("../images/tick1.png") no-repeat 1px 2px;
+	background: asset-url("tick1.png") no-repeat 1px 2px;
 	top: -1px;
 	left: -1px;
 	width: 15px;
@@ -931,10 +933,11 @@ p.connect-in a:hover{
 	text-decoration:underline;
 }
 .footer{
-padding:0 0 2em;
+background:asset-url("black-pattern.png") ;
+padding: 2em;
 }
 .footer p{
-	color:#2d2d2d;
+	color:#F6F6F6;
 	font-size:1em;
 	text-align:center;
 }
@@ -1100,7 +1103,7 @@ span.menu{
 	padding:0.6em;
 }
 .logo {
-  padding: 2em 0 0;
+  padding: 2em ;
 }
 .logo h1 {
   font-size: 3em;

@@ -37,5 +37,6 @@ $(document).ready(function(){
   //  $("#donation_expiry_5i").val("00");
 
  });
-
+ 
+$(".imgLiquidFill").imgLiquid({fill:true});
 });
