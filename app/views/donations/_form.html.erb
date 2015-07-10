@@ -53,6 +53,12 @@
       <%= f.text_field :city, {class: "form-control", style: "color: #6E6363;", :required => true }%>
     </div>
   </div>
+  <div class="form-group ">
+    <label class="ld_label col-sm-2" for="image">Image:</label>
+    <div class="col-sm-6" style="padding-top: 11px;">
+      <%= f.file_field :image , class: "form-control" %>
+    </div>
+  </div>
   <%= f.hidden_field :user_id, {class: "form-control", value: current_user.present? ? current_user.id : nil} %>
 
   <div class="form-group">
