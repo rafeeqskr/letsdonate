@@ -23,7 +23,7 @@
         </div>
         <div class="top-women">
           <% if donation.user == current_user %>
-          <a href="<%= edit_donation_path(donation) %>">Manage</a>
+          <a href="<%= donation_path(donation) %>">Manage</a>
           <% else %>
           <a href="<%= donation_path(donation) %>">Show</a>
           <% end %>
